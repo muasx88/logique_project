@@ -1,0 +1,22 @@
+{
+	"title": "Pagination Schema",
+	"type": "object",
+	"properties": {
+		"q": {
+			"type": "string"
+		},
+		"of": {
+			"type": "number"
+		},
+		"lt": {
+			"type": "number"
+		},
+		"sb": {
+			"type": "string"
+		},
+		"ob": {
+			"type": "string"
+		},
+		"additionalProperties": false
+	}
+}

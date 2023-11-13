@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "69120187-d8ae-485c-a4ab-1f0fc4bbf46d",
+		"name": "Logique",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13594443"
+	},
+	"item": [
+		{
+			"name": "register users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "HiJhvL$T27@1u^%u86g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jon Doe\",\n    \"email\": \"doe@mail.com\",\n    \"address\": \"Bali\",\n    \"password\": \"123\",\n    \"creditcard_type\": \"HAH\",\n    \"creditcard_name\": \"Doe\",\n    \"creditcard_number\": \"23123213213123123\",\n    \"creditcard_expired\": \"2020-01-01\",\n    \"creditcard_cvv\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "HiJhvL$T27@1u^%u86g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/users?q=John Doe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "John Doe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "HiJhvL$T27@1u^%u86g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/users/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"18"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
