@@ -1,9 +1,5 @@
-import { config } from 'dotenv';
 import yargs from 'yargs';
 import { knex } from 'knex';
-
-config();
-
 import knexConfig from './knexfile';
 
 // Add command to create a new migration
