@@ -1,39 +1,52 @@
 # Development Stage
-FROM node:18 AS development
+FROM node:18-alpine AS development
+
+RUN mkdir -p /app/node_modules && chown -R node:node /app
+RUN chown -R node:node /usr/local
 
 WORKDIR /app
 
 COPY package.json .
 COPY pnpm-lock.yaml .
+
+USER node
 
 # Install dependencies for development
 RUN npm install -g pnpm
-RUN pnpm install --only=development
-RUN pnpm run migration:up
+RUN pnpm install
 
+COPY --chown=node:node . .
 
-COPY . .
+EXPOSE 8000
 
 CMD ["pnpm", "run", "dev"]
 
+
+
 # Production Stage
-FROM node:18 AS production
+FROM node:18-alpine AS production
+
+RUN mkdir -p /app/node_modules && chown -R node:node /app
+RUN chown -R node:node /usr/local
 
 WORKDIR /app
 
 COPY package.json .
 COPY pnpm-lock.yaml .
+
+USER node
 
 # Install dependencies for production
 RUN npm install -g pnpm
 RUN pnpm install --only=production
-RUN pnpm run migration:up
 
-COPY . .
+COPY --chown=node:node . .
 
 RUN pnpm run build
 
 # Remove development dependencies
 RUN pnpm prune --prod
+
+EXPOSE 8000
 
 CMD ["pnpm", "start"]

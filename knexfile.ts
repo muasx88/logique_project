@@ -2,11 +2,9 @@ import 'dotenv/config';
 import config from './src/config';
 import type { Knex } from 'knex';
 
-// Update with your config settings.
-
 const knexConfig: { [key: string]: Knex.Config } = {
 	local: {
-		client: 'mysql',
+		client: 'mysql2',
 		connection: {
 			host: config.DB_HOST,
 			port: config.DB_PORT,
@@ -21,7 +19,7 @@ const knexConfig: { [key: string]: Knex.Config } = {
 	},
 
 	development: {
-		client: 'mysql',
+		client: 'mysql2',
 		connection: {
 			host: config.DB_HOST,
 			port: config.DB_PORT,
@@ -36,11 +34,13 @@ const knexConfig: { [key: string]: Knex.Config } = {
 	},
 
 	production: {
-		client: 'mysql',
+		client: 'mysql2',
 		connection: {
-			database: 'my_db',
-			user: 'username',
-			password: 'password',
+			host: config.DB_HOST,
+			port: config.DB_PORT,
+			user: config.DB_USER,
+			password: config.DB_PASSWORD,
+			database: config.DB_NAME,
 		},
 		pool: {
 			min: 2,
