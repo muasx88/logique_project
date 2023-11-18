@@ -7,8 +7,8 @@ Server.use(express.json());
 Server.use(express.urlencoded({ extended: true }));
 
 Server.get('/', (_, res: Response) => {
-	console.log('akses root', process.env.NAME);
-	res.send('Halo dunia');
+  console.log('akses root', process.env.NAME);
+  res.send('Halo dunia');
 });
 
 Server.use('/users', userRoute);

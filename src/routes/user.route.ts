@@ -9,12 +9,7 @@ const userRoute: Router = Router();
 
 userRoute.get('/', validateKey, UserList);
 userRoute.get('/:id', validateKey, UserDetail);
-userRoute.post(
-	'/register',
-	validateKey,
-	validateBody(UserRegisterSchema),
-	UserRegister
-);
+userRoute.post('/register', validateKey, validateBody(UserRegisterSchema), UserRegister);
 // userRoute.put('/update/:id', validateKey, UserUpdate);
 
 export default userRoute;
