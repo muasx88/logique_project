@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      target: development
+    container_name: web_api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    networks:
+      - logique_networks
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_express_api
+    command: --default-authentication-plugin=caching_sha2_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - logique_networks
+    env_file:
+      - .env
+
+volumes:
+  mysql_data:
+
+networks:
+  logique_networks:
+    driver: bridge

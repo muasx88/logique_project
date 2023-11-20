@@ -1,44 +1,44 @@
 {
-	"title": "User Register Schema",
-	"type": "object",
-	"required": [
-		"name",
-		"address",
-		"email",
-		"password",
-		"creditcard_type",
-		"creditcard_name",
-		"creditcard_expired",
-		"creditcard_cvv",
-		"creditcard_number"
-	],
-	"properties": {
-		"name": {
-			"type": "string"
-		},
-		"address": {
-			"type": "string"
-		},
-		"email": {
-			"type": "string"
-		},
-		"password": {
-			"type": "string"
-		},
-		"creditcard_type": {
-			"type": "string"
-		},
-		"creditcard_name": {
-			"type": "string"
-		},
-		"creditcard_number": {
-			"type": "string"
-		},
-		"creditcard_expired": {
-			"type": "string"
-		},
-		"creditcard_cvv": {
-			"type": "string"
-		}
-	}
+  "title": "User Register Schema",
+  "type": "object",
+  "required": [
+    "name",
+    "address",
+    "email",
+    "password",
+    "creditcard_type",
+    "creditcard_name",
+    "creditcard_expired",
+    "creditcard_cvv",
+    "creditcard_number"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "creditcard_type": {
+      "type": "string"
+    },
+    "creditcard_name": {
+      "type": "string"
+    },
+    "creditcard_number": {
+      "type": "string"
+    },
+    "creditcard_expired": {
+      "type": "string"
+    },
+    "creditcard_cvv": {
+      "type": "string"
+    }
+  }
 }
